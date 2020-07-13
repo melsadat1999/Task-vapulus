@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "taskVaPlusus"
+    }
+  },
+  "defaultProject": "taskVaPlusus",
+  "cli": {
+    "analytics": "cfaae180-4058-4e4e-a040-e797dfd7ddea"
+  }
 }
