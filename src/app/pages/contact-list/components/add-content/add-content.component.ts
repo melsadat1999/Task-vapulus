@@ -12,6 +12,8 @@ export class AddContentComponent implements OnInit {
   addContact: FormGroup;
   keysnumber: any[] = [];
   private _jsonURL = 'assets/KeyNumber.json';
+  imagePath:any;
+  imgURL:any;
   constructor(public dialogRef: MatDialogRef<AddContentComponent>, fb: FormBuilder, private http: HttpClient) {
     this.addContact = fb.group({
       firstName: ['', Validators.required],
@@ -21,7 +23,23 @@ export class AddContentComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
     })
   }
-
+  preview(files) {
+    if (files.length === 0)
+      return;
+ 
+    var mimeType = files[0].type;
+    if (mimeType.match(/image\/*/) == null) {
+      // this.message = "Only images are supported.";
+      return;
+    }
+ 
+    var reader = new FileReader();
+    this.imagePath = files;
+    reader.readAsDataURL(files[0]); 
+    reader.onload = (_event) => { 
+      this.imgURL = reader.result; 
+    }
+  }
   ngOnInit(): void {
     this.http.get(this._jsonURL).subscribe((Keys: any) => {
       console.log(Keys)
@@ -33,7 +51,11 @@ export class AddContentComponent implements OnInit {
       console.log(this.addContact.value)
       this.dialogRef.close({
         ...this.addContact.value,
+        image:this.imgURL
       });
     }
+  }
+  close(){
+    this.dialogRef.close();
   }
 }

@@ -15,6 +15,7 @@ export class ContactListComponent implements OnInit {
   letters: any[] = [];
   data: any[] = [];
   searchItems: any[] = [];
+  latestContents:any[]=[];
   constructor(private http: HttpClient, private animateScrollService: NgAnimateScrollService,public dialog: MatDialog) {
 
     this.getJSON()
@@ -72,6 +73,8 @@ export class ContactListComponent implements OnInit {
       const dialogRef = this.dialog.open(AddContentComponent, { minWidth: "100%", minHeight: "100%",height: "100%",panelClass:'modalAddContent' });
       dialogRef.afterClosed().subscribe(result => {
         console.log(result)
+        if(!result) return;
+        this.latestContents.push(result);
       });
 
   
