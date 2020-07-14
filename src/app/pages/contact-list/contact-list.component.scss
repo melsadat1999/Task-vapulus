@@ -48,7 +48,7 @@
     }
 }
 .item{
-    padding: 10px;
+    margin: 10px;
     display: flex;
     align-items: center;
     .info{
@@ -72,4 +72,20 @@
         border: 3px solid#ddd;
     }
 
+}
+.letterButton {
+    position: fixed;
+    right: 2px;
+    top: 69%;
+    transform: translateY(-50%);
+    flex-direction: column;
+    display: flex;
+    z-index: 99999;
+    width: 38px;
+    button{
+        margin: 3px 0;
+        background: none;
+        border: 0;
+        font-size: 15px;
+    }
 }

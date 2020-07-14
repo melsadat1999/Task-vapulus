@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { NgAnimateScrollService } from 'ng-animate-scroll';
+
 @Component({
   selector: 'app-contact-list',
   templateUrl: './contact-list.component.html',
@@ -9,12 +11,15 @@ export class ContactListComponent implements OnInit {
   private _jsonURL = 'assets/contacts.json';
   contents: any[] = [];
   letters: any[] = [];
-  constructor(private http: HttpClient) {
+  
+  constructor(private http: HttpClient,private animateScrollService: NgAnimateScrollService) {
 
     this.getJSON()
 
   }
-
+  navigateToHeader(contentList) {
+    this.animateScrollService.scrollToElement(contentList, 1000)
+}
   ngOnInit(): void {
   }
   public getJSON() {

@@ -17,7 +17,13 @@
        </div>
     </div>
     <div class="listItem">
-        <div class="Contents"  *ngFor="let content of contents">
+        <div class="letterButton">
+            <button *ngFor="let content of contents" (click)="navigateToHeader(content.letter)" >
+              {{ content.letter}}
+            </button>
+       </div>
+        <div class="Contents"  *ngFor="let content of contents" [id]='content.letter'>
+           
             <p class="title Cp">{{content.letter}}</p>
             <div class="item"  *ngFor="let item of content.items"> 
             
