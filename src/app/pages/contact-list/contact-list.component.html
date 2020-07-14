@@ -19,10 +19,10 @@
     <div class="Contents">
         <p class="title Cp">a</p>
         <div class="item" *ngFor="let item of contents"> 
-            <img src="https://ggirls.cc/wp-content/uploads/2018/07/1185-1.jpg">
+            <img [src]="item.image" onerror="this.src='https://ggirls.cc/wp-content/uploads/2018/07/1185-1.jpg'">
             <div class="info">
-               <p class="name">ahmed karem</p>
-               <p>{{item.}}</p>
+               <p class="name">{{item.firstName + item.lastName}} </p>
+               <p>{{item.mobileNumber || item.email }}</p>
             </div>
         </div>
      </div>
