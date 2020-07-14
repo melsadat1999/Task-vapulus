@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class ContactListComponent implements OnInit {
   private _jsonURL = 'assets/contacts.json';
   contents: any[] = [];
-  li
+  letters: any[] = [];
   constructor(private http: HttpClient) {
 
     this.getJSON()
@@ -19,23 +19,20 @@ export class ContactListComponent implements OnInit {
   }
   public getJSON() {
     this.http.get(this._jsonURL).subscribe((content: any) => {
-      this.contents = content.data
-      // this.contents.forEach((e ,i)=> {
-      //   if(e.firstName)
-      // });
-      this.contents.sort(function (a, b) {
-      
-        if (a.firstName < b.firstName) {
-
-           console.log( a.firstName.charAt(0) )
-           console.log(a.firstName)
-          return -1;
+      content.data.forEach(e => {
+        e.firstName = e.firstName.charAt(0).toUpperCase() + e.firstName.slice(1);
+        if (this.letters.indexOf(e.firstName.charAt(0)) == -1) {
+          this.letters.push(e.firstName.charAt(0));
         }
-        if (a.firstName > b.firstName) { 
-          console.log( a.firstName.charAt(0) )
-          return 1; }
-        return 0;
-      });
+        if (!this.contents[this.letters.length - 1]) {
+          this.contents[this.letters.length - 1] = {
+            letter: this.letters[this.letters.length - 1],
+            items: []
+          }
+        }
+        this.contents[this.letters.length - 1].items.push(e)
+      })
+      console.log( this.contents)
     });
   }
 }

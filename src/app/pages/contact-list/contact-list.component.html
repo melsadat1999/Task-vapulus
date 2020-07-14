@@ -16,14 +16,18 @@
            </div>
        </div>
     </div>
-    <div class="Contents">
-        <p class="title Cp">a</p>
-        <div class="item" *ngFor="let item of contents"> 
-            <img [src]="item.image" onerror="this.src='https://ggirls.cc/wp-content/uploads/2018/07/1185-1.jpg'">
-            <div class="info">
-               <p class="name">{{item.firstName + item.lastName}} </p>
-               <p>{{item.mobileNumber || item.email }}</p>
+    <div class="listItem">
+        <div class="Contents"  *ngFor="let content of contents">
+            <p class="title Cp">{{content.letter}}</p>
+            <div class="item"  *ngFor="let item of content.items"> 
+            
+                <img [src]="item.image" onerror="this.src='https://ggirls.cc/wp-content/uploads/2018/07/1185-1.jpg'">
+                <div class="info">
+                   <p class="name">{{item.firstName + item.lastName}} </p>
+                   <p>{{item.mobileNumber || item.email }}</p>
+                </div>
             </div>
-        </div>
-     </div>
+         </div>
+    </div>
+ 
 </div>

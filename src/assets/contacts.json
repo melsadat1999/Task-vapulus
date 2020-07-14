@@ -518,14 +518,6 @@
             "mobileNumber": null,
             "firstName": "Yahia",
             "lastName": "Ali"
-        },
-        {
-            "userId": null,
-            "email": null,
-            "userName": null,
-            "mobileNumber": null,
-            "firstName": null,
-            "lastName": null
         }
     ]
 }
