@@ -23,13 +23,13 @@ export class AddContentComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
     })
   }
+  //preview img
   preview(files) {
     if (files.length === 0)
       return;
  
     var mimeType = files[0].type;
     if (mimeType.match(/image\/*/) == null) {
-      // this.message = "Only images are supported.";
       return;
     }
  
@@ -46,6 +46,7 @@ export class AddContentComponent implements OnInit {
       this.keysnumber = Keys
     })
   }
+  // add Contact Itam
   addContactItam() {
     if (this.addContact.valid) {
       console.log(this.addContact.value)
