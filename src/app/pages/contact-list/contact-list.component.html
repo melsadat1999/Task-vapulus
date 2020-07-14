@@ -2,7 +2,7 @@
     <div class="headerSearch">
         <input type="text" (keyup)="searchBar($event)" placeholder="Search Contacts">
     </div>
-    <button class="addContent">
+    <button class="addContent" (click)="openAddContentDialog()">
         <p>Add New Contents</p>
         <i>+</i>
     </button>

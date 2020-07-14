@@ -2,7 +2,7 @@
     background: #ddd;
     padding: 10px;
     position: sticky;
-    z-index: 999999;
+    z-index: 999;
     top: 0;
     input{
         width: 100%;
@@ -80,7 +80,7 @@
     transform: translateY(-50%);
     flex-direction: column;
     display: flex;
-    z-index: 99999;
+    z-index: 99;
     width: 38px;
     button{
         margin: 3px 0;
@@ -88,4 +88,8 @@
         border: 0;
         font-size: 15px;
     }
+}
+
+mat-form-field{
+    width: 100%;
 }

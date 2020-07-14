@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NgAnimateScrollService } from 'ng-animate-scroll';
+import { MatDialog } from '@angular/material/dialog';
+import { AddContentComponent } from './components/add-content/add-content.component';
 
 @Component({
   selector: 'app-contact-list',
@@ -13,7 +15,7 @@ export class ContactListComponent implements OnInit {
   letters: any[] = [];
   data: any[] = [];
   searchItems: any[] = [];
-  constructor(private http: HttpClient, private animateScrollService: NgAnimateScrollService) {
+  constructor(private http: HttpClient, private animateScrollService: NgAnimateScrollService,public dialog: MatDialog) {
 
     this.getJSON()
 
@@ -63,5 +65,15 @@ export class ContactListComponent implements OnInit {
       })
       console.log(this.data)
     });
+  }
+
+
+  openAddContentDialog(){
+      const dialogRef = this.dialog.open(AddContentComponent, { minWidth: "100%", minHeight: "100%",height: "100%",panelClass:'modalAddContent' });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(result)
+      });
+
+  
   }
 }

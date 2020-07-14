@@ -9,3 +9,14 @@ body,html{
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.modalAddContent{
+    background-color: #fff;
+    mat-dialog-container{
+        border-radius: 0;
+        background-color: #fff;
+    }
+}
+.mat-form-field-appearance-fill .mat-form-field-flex{
+    padding: 0  !important;
+    background: none;
+}
