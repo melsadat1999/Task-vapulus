@@ -7,35 +7,33 @@
     </div>
 
 </div>
-<form>
+<form [formGroup]="addContact">
     <mat-form-field class="example-full-width">
-        <mat-label>Frist Name</mat-label>
-        <input matInput placeholder="Ex. Mohamed...">
+        <mat-label>Firs Name</mat-label>
+        <input matInput formControlName="firstName" placeholder="Ex. Mohamed...">
     </mat-form-field>
     <mat-form-field class="example-full-width">
         <mat-label>Last Name</mat-label>
-        <input matInput placeholder="Ex. Elsadat...">
+        <input matInput formControlName="lastName" placeholder="Ex. Elsadat...">
     </mat-form-field>
     <div class="Phone">
-        <mat-form-field appearance="fill" class="keyNumber">
+        <mat-form-field appearance="fill"  class="keyNumber">
             <mat-label>State Key</mat-label>
             <!-- [(value)]="selected" -->
-            <mat-select>
-                <mat-option>None</mat-option>
-                <mat-option value="option1">Option 1</mat-option>
-                <mat-option value="option2">Option 2</mat-option>
-                <mat-option value="option3">Option 3</mat-option>
+            <mat-select formControlName="StateKey"  >
+                <mat-option  *ngFor="let key of keysnumber" [value]="key.dial_code">{{key.dial_code}}</mat-option>
+          
             </mat-select>
         </mat-form-field>
         <mat-form-field class="phoneNumber example-full-width">
             <mat-label>Phone Number</mat-label>
-            <input matInput type="number" placeholder="Ex.012001...">
+            <input matInput  formControlName="mobileNumber" type="number" placeholder="Ex.012001...">
         </mat-form-field>
     </div>
 
     <mat-form-field class="example-full-width">
         <mat-label>Email</mat-label>
-        <input matInput placeholder="Ex. pat@example.com">
+        <input matInput  formControlName="email"  placeholder="Ex. pat@example.com">
         <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
         <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
           Please enter a valid email address
@@ -45,7 +43,7 @@
         </mat-error> -->
     </mat-form-field>
 
-    <button class="addBtn">
+    <button class="addBtn" (click)="addContactItam()">
         Add Contact
     </button>
     <button class="CancelBtn">

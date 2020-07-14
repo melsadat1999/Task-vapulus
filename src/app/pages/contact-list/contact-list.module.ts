@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContactListComponent } from './contact-list.component';
 import { Routes, RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import {MatDialogModule} from '@angular/material/dialog';
 import { AddContentComponent } from './components/add-content/add-content.component';
 import {MatInputModule} from '@angular/material/input';
@@ -21,7 +21,8 @@ const routes: Routes = [
     FormsModule,
     MatDialogModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    ReactiveFormsModule
   ],entryComponents:[AddContentComponent]
 })
 export class ContactListModule { }
